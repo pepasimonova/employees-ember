@@ -1,0 +1,35 @@
+<div class="jumbo">
+  <div class="right tomster"></div>
+  <h2>Welcome!</h2>
+</div>
+
+<div style="margin:30px">
+	<h3>Search employees:</h3>
+	{{#list-filter
+	   filter=(action 'filterByName')
+	   as |employees|}}
+	   <hr />
+	  <table class="table results">
+		  <thead>
+			<tr>
+			  <th>First Name</th>
+			  <th>Surname</th>
+			  <th>Date of Birth</th>
+			  <th>Income Tax</th>
+			  <th>National Insurance</th>		  
+			</tr>
+		  </thead>
+		  <tbody>
+			   {{#each employees as |employee|}}
+				<tr>
+					<td>{{employee.firstName}}</td>
+					<td>{{employee.surname}}</td>
+					<td>{{employee.dateOfBirth}}</td>
+					<td>{{employee.incomeTax}}</td>
+					<td>{{employee.nationalInsurance}}</td>
+				</tr>
+			  {{/each}}
+		  </tbody>  
+	  </table>
+	{{/list-filter}}
+</div>
